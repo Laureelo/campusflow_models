@@ -1,3 +1,5 @@
+import 'json_utils.dart';
+
 class User {
   final int id;
   final String nom;
@@ -10,6 +12,15 @@ class User {
     required this.age,
     required this.email,
   });
+
+  factory User.fromJson(Map<String, dynamic> json) {
+    return User(
+      id: champ<int>(json, 'id'),
+      nom: champ<String>(json, 'nom'),
+      age: champ<int>(json, 'age'),
+      email: champ<String>(json, 'email'),
+    );
+  }
 
   User copyWith({int? id, String? nom, int? age, String? email}) {
     return User(

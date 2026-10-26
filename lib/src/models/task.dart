@@ -1,3 +1,5 @@
+import 'json_utils.dart';
+
 class Task {
   final int id;
   final String title;
@@ -12,6 +14,16 @@ class Task {
     this.done = false,
     required this.courseId,
   });
+
+  factory Task.fromJson(Map<String, dynamic> json) {
+    return Task(
+      id: champ<int>(json, 'id'),
+      title: champ<String>(json, 'title'),
+      dueDate: DateTime.parse(champ<String>(json, 'dueDate')),
+      done: json['done'] as bool? ?? false,
+      courseId: champ<int>(json, 'courseId'),
+    );
+  }
 
   Task copyWith({
     int? id,

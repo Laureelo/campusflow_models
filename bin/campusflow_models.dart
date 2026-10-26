@@ -1,15 +1,18 @@
 import 'package:campusflow_models/campusflow_models.dart';
 
-void main() {
-  final tache = Task(
-    id: 1,
-    title: 'Rendre le TP Dart',
-    dueDate: DateTime(2026, 11, 1),
-    courseId: 10,
-  );
-  final terminee = tache.copyWith(done: true);
+Future<void> main() async {
+  final depot = CampusRepository();
 
-  print(tache);
-  print(terminee);
-  print('En retard ? ${tache.enRetard(DateTime.now())}');
+  print('Chargement en cours...');
+  final user = await depot.loadUser();
+  final cours = await depot.loadCourses();
+  final taches = await depot.loadTasks();
+
+  print(user);
+  cours.forEach(print);
+  for (final t in taches) {
+    print('$t -> en retard ? ${t.enRetard(DateTime(2026, 10, 26))}');
+  }
+
+  print(taches.first.copyWith(done: true));
 }
