@@ -17,11 +17,11 @@ class Task {
 
   factory Task.fromJson(Map<String, dynamic> json) {
     return Task(
-      id: champ<int>(json, 'id'),
-      title: champ<String>(json, 'title'),
-      dueDate: DateTime.parse(champ<String>(json, 'dueDate')),
+      id: readField<int>(json, 'id'),
+      title: readField<String>(json, 'title'),
+      dueDate: DateTime.parse(readField<String>(json, 'dueDate')),
       done: json['done'] as bool? ?? false,
-      courseId: champ<int>(json, 'courseId'),
+      courseId: readField<int>(json, 'courseId'),
     );
   }
 
@@ -41,8 +41,8 @@ class Task {
     );
   }
 
-  bool enRetard(DateTime maintenant) {
-    return dueDate.isBefore(maintenant) && !done;
+  bool isOverdue(DateTime now) {
+    return dueDate.isBefore(now) && !done;
   }
 
   @override

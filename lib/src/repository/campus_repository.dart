@@ -6,14 +6,14 @@ class CampusRepository {
   static const List<Map<String, dynamic>> _tasksJson = [
     {
       'id': 1,
-      'title': 'Rendre le TP Dart',
+      'title': 'Submit the Dart assignment',
       'dueDate': '2026-11-01T10:00:00',
       'done': false,
       'courseId': 10,
     },
     {
       'id': 2,
-      'title': 'Réviser le cours de bases de données',
+      'title': 'Review the database course',
       'dueDate': '2026-10-20T08:00:00',
       'done': false,
       'courseId': 11,
@@ -21,15 +21,15 @@ class CampusRepository {
   ];
 
   static const List<Map<String, dynamic>> _coursesJson = [
-    {'id': 10, 'name': 'Programmation mobile', 'teacher': 'M. Moctar'},
-    {'id': 11, 'name': 'Bases de données', 'teacher': 'Mme Diallo'},
+    {'id': 10, 'name': 'Mobile Programming', 'teacher': 'Mr. Moctar'},
+    {'id': 11, 'name': 'Databases', 'teacher': 'Mrs. Diallo'},
   ];
 
   static const Map<String, dynamic> _userJson = {
     'id': 1,
-    'nom': 'Laure',
+    'name': 'Lila',
     'age': 23,
-    'email': 'laure@campus.test',
+    'email': 'lila@campus.test',
   };
 
   Future<List<Task>> loadTasks() async {

@@ -1,23 +1,25 @@
 # campusflow_models
 
-Modèles de données de CampusFlow en Dart pur (atelier de 90 minutes).
+CampusFlow data models in pure Dart (90-minute workshop).
 
-## Contenu
+## Contents
 
-- `Task`, `Course` et `User` : attributs `final`, constructeur, `copyWith` et `fromJson`.
-- `CampusRepository` : dépôt simulé qui charge des données JSON avec `Future.delayed`.
-- 3 tests : `copyWith`, `fromJson` et erreur attendue (`FormatException`).
+- `Task`, `Course` and `User`: `final` fields, constructor, `copyWith` and `fromJson`.
+- `Task.isOverdue`: true when the due date has passed and the task is not done.
+- `CampusRepository`: simulated repository that loads JSON data with `Future.delayed`.
+- Parallel loading of the user, the courses and the tasks with `Future.wait` (records `.wait`).
+- Tests: `copyWith`, `fromJson`, expected error (`FormatException`), `isOverdue` and the repository.
 
 ## Structure
 
 ```
-lib/src/models/          les trois modèles et la fonction champ (lecture du JSON)
-lib/src/repository/      le dépôt simulé
-bin/                     programme de démonstration
-test/                    les tests
+lib/src/models/          the three models and readField (JSON reading)
+lib/src/repository/      the simulated repository
+bin/                     demo program
+test/                    tests
 ```
 
-## Lancer le projet
+## Run
 
 ```
 dart pub get

@@ -1,10 +1,10 @@
-T champ<T>(Map<String, dynamic> json, String cle) {
-  final valeur = json[cle];
-  if (valeur == null) {
-    throw FormatException('Champ manquant : "$cle"');
+T readField<T>(Map<String, dynamic> json, String key) {
+  final value = json[key];
+  if (value == null) {
+    throw FormatException('Missing field: "$key"');
   }
-  if (valeur is! T) {
-    throw FormatException('Champ "$cle" de mauvais type (attendu : $T)');
+  if (value is! T) {
+    throw FormatException('Field "$key" has the wrong type (expected: $T)');
   }
-  return valeur;
+  return value;
 }

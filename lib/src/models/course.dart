@@ -13,9 +13,9 @@ class Course {
 
   factory Course.fromJson(Map<String, dynamic> json) {
     return Course(
-      id: champ<int>(json, 'id'),
-      name: champ<String>(json, 'name'),
-      teacher: champ<String>(json, 'teacher'),
+      id: readField<int>(json, 'id'),
+      name: readField<String>(json, 'name'),
+      teacher: readField<String>(json, 'teacher'),
     );
   }
 
